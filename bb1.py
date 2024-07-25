@@ -21,7 +21,7 @@ white = (255, 255, 255)
  
 # define ball
 ball_obj = pygame.draw.circle(
-    surface=screen, color=red, center=[screen.get_width()/2, screen.get_height()/2], radius=40)
+    surface=screen, color=red, center=[screen.get_width()/2, screen.get_height()], radius=40)
 # define speed of ball
 # speed = [X direction speed, Y direction speed]
 speed = [0, 0]
@@ -52,7 +52,8 @@ while playing:
         speed[1] = -speed[1]
     if ball_obj.bottom >= height:
         speed[1] = 0
-        playing = False
+    if ball_obj.bottom >= height and pygame.mouse.get_pressed()[0]:
+        speed = [0, -1]
 
     # draw ball at new centers that are obtained after moving ball_obj
     pygame.draw.circle(surface=screen, color=red,
