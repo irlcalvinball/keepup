@@ -1,4 +1,12 @@
+import socket
 import pygame
+
+HOST = '0.0.0.0'
+PORT = '10000'
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind((HOST, PORT))
+
 # initialize pygame
 pygame.init()
  
