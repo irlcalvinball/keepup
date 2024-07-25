@@ -8,7 +8,7 @@ width = 1000
 height = 600
 screen_res = (width, height)
  
-pygame.display.set_caption("GFG Bouncing game")
+pygame.display.set_caption("Keep Up")
 screen = pygame.display.set_mode(screen_res)
 
 pygame.font.init()
@@ -46,21 +46,21 @@ while playing:
     # Now center of the ball is (101,101)
     # In this way our wall will move
     if pygame.mouse.get_pressed()[0]:
-        speed = [0, -1]
+        speed = [0, -10]
     # if ball goes out of screen then change direction of movement
     if ball_obj.top <= 0:
         speed[1] = -speed[1]
     if ball_obj.bottom >= height:
         speed[1] = 0
     if ball_obj.bottom >= height and pygame.mouse.get_pressed()[0]:
-        speed = [0, -1]
+        speed = [0, -10]
 
     # draw ball at new centers that are obtained after moving ball_obj
     pygame.draw.circle(surface=screen, color=red,
                        center=ball_obj.center, radius=40)
 
 
-    if speed[1] == -1:
+    if speed[1] == -10:
         count += 1          
 
     
